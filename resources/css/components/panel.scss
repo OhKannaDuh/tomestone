@@ -1,0 +1,37 @@
+.panel-toolbar {
+    .v-toolbar__content {
+        padding: 0;
+    }
+
+    #header-nav {
+        padding: 8px;
+    }
+
+    #header-buttons {
+        display: flex;
+        justify-content: flex-end;
+        .v-btn.square {
+            height: 64px;
+            width: 64px;
+        }
+    }
+}
+
+.panel-column {
+    display: flex;
+    flex-direction: column;
+
+    .panel {
+        &.panel-color-1 {
+            background-color: $panel-color-1;
+        }
+
+        &.panel-color-2 {
+            background-color: $panel-color-2;
+        }
+
+        &.panel-color-3 {
+            background-color: $panel-color-3;
+        }
+    }
+}

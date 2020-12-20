@@ -1,0 +1,59 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900);@import url(https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css);.panel-toolbar .v-toolbar__content {
+  padding: 0;
+}
+
+.panel-toolbar #header-nav {
+  padding: 8px;
+}
+
+.panel-toolbar #header-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.panel-toolbar #header-buttons .v-btn.square {
+  height: 64px;
+  width: 64px;
+}
+
+.panel-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-column .panel.panel-color-1 {
+  background-color: #2B3840;
+}
+
+.panel-column .panel.panel-color-2 {
+  background-color: #1E2B33;
+}
+
+.panel-column .panel.panel-color-3 {
+  background-color: #37444C;
+}
+
+.location {
+  fill: #D9D1BA;
+  stroke: black;
+}
+
+.location.locked {
+  fill: #5f5435;
+}
+
+.location.unfocused {
+  fill: black;
+}
+
+.location:hover:not(.locked):not(.focused):not(.unfocused) {
+  fill: #d0c6aa;
+  cursor: pointer;
+}
+
+.v-application .v-main,
+.v-application .panel-column {
+  max-height: 100%;
+  overflow: hidden;
+}
+

@@ -1,0 +1,6 @@
+include: "resources/js/**/*.ts"
+exclude: "resources/js/tests/*"
+reporter:
+    - "text"
+    - "html"
+report-dir: "/tmp/coverage/"

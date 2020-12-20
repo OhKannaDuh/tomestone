@@ -1,0 +1,17 @@
+.location {
+    fill: #D9D1BA;
+    stroke: black;
+
+    &.locked {
+        fill: darken(#D9D1BA, 50%);
+    }
+
+    &.unfocused {
+        fill: black;
+    }
+
+    &:hover:not(.locked):not(.focused):not(.unfocused) {
+        fill: darken(#D9D1BA, 5%);
+        cursor: pointer;
+    }
+}

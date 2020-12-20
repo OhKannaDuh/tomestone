@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "types": [
+            "chai",
+            "lodash",
+            "mocha",
+            "node",
+            "vuetify",
+            "webpack-env",
+        ]
+    }
+}
