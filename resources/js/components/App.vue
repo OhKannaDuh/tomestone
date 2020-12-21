@@ -9,11 +9,14 @@
                     <v-card>
                         <v-card-text>
                             <v-row>
-                                <v-col cols="12" sm="6">
-                                    <v-text-field v-model="caps.total" label="Tomestone Cap"></v-text-field>
+                                <v-col cols="12" sm="4">
+                                    <v-text-field v-model="caps.total" label="Tomestone Cap" @change="recalculate"></v-text-field>
                                 </v-col>
-                                <v-col cols="12" sm="6">
-                                    <v-text-field v-model="caps.weekly" label="Weekly Cap"></v-text-field>
+                                <v-col cols="12" sm="4">
+                                    <v-text-field v-model="caps.weekly" label="Weekly Cap"  @change="recalculate"></v-text-field>
+                                </v-col>
+                                <v-col cols="12" sm="4">
+                                    <v-text-field v-model="starting" label="Starting Tomestones" @change="recalculate"></v-text-field>
                                 </v-col>
                             </v-row>
                         </v-card-text>
@@ -125,6 +128,7 @@
 <script>
 export default {
     data: () => ({
+        starting: 0,
         modal: {
             open: false,
             week: null,
@@ -232,7 +236,7 @@ export default {
             let newWeek = JSON.parse(JSON.stringify(this.weeks.default[0]));
             newWeek.week = lastWeek.week + 1;
             newWeek.start = lastWeek.end;
-            newWeek.available = Math.min(newWeek.start + this.caps.weekly, this.caps.total);
+            newWeek.available = Math.min(newWeek.start + parseInt(this.caps.weekly), this.caps.total);
             newWeek.end = Math.min(newWeek.available - newWeek.spent, this.caps.total);
 
             this.weeks.current.push(newWeek);
@@ -257,11 +261,13 @@ export default {
             for (let index in this.weeks.current) {
                 let week = this.weeks.current[index];
                 if (week.week === 0) {
+                    week.start = this.starting;
+                    week.end = this.starting;
                     continue;
                 }
 
-                week.start = this.weeks.current[index - 1].end;
-                week.available = Math.min(week.start + this.caps.weekly, this.caps.total);
+                week.start = parseInt(this.weeks.current[index - 1].end);
+                week.available = Math.min(week.start + parseInt(this.caps.weekly), this.caps.total);
                 week.spent = 0;
                 for (let item of week.items) {
                     week.spent += item.value;

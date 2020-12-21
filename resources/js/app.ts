@@ -1,6 +1,5 @@
 require("./bootstrap");
 
-import $ from "jquery";
 import Vue from "vue";
 import vuetify from "./plugins/vuetify";
 
@@ -17,16 +16,5 @@ files.keys().map(key =>
 );
 
 new Vue({
-    vuetify,
-    mounted() {
-        this.resize();
-        window.addEventListener("resize", this.resize);
-    },
-    methods: {
-        resize() {
-            $("#app").height(window.innerHeight);
-            // 314 is the height of the log window and toolbar
-            $("#primary-panel").height(window.innerHeight - 314);
-        }
-    }
+    vuetify
 }).$mount("#app");
